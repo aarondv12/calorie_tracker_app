@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 
-      home: const MyHomePage(title: 'Calorie tracker app 3'),
+      home: const MyHomePage(title: 'Calorie tracker app 4'),
 
     );
   }
