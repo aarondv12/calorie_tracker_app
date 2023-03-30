@@ -24,7 +24,11 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+<<<<<<< HEAD
       home: const MyHomePage(title: 'Calorie tracker app 3'),
+=======
+      home: const MyHomePage(title: 'Calorie tracker app 2'),
+>>>>>>> 30e4d56a104a3899097029f37117d97ac13e13a2
     );
   }
 }
