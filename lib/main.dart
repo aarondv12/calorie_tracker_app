@@ -6,3 +6,9 @@ import 'package:flutter/cupertino.dart';
 import 'start_page.dart';
 
 enum FoodType { meal, snack, drink }
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await HiveHelper.init();
+  runApp(CalorieTrackerApp());
+}
