@@ -6,3 +6,14 @@ import 'package:flutter/cupertino.dart';
 import 'main.dart';
 
 
+class _HomePageState extends State<HomePage> {
+  List<FoodItem> _foodItems = [];
+  int _totalCalories = 0;
+  bool _isCurrentDate = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchFoodItems();
+  }
+}
