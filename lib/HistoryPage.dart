@@ -12,4 +12,16 @@ class _HistoryPageState extends State<HistoryPage> {
   DateTime _selectedDate = DateTime.now();
   List<FoodItem> _foodItems = [];
 
+  @override
+  void initState() {
+    super.initState();
+    _fetchFoodItems();
+  }
+
+  void _fetchFoodItems() async {
+    final items = await HiveHelper.loadFoodItemsByDate(_selectedDate);
+    setState(() {
+      _foodItems = items;
+    });
+  }
 }
