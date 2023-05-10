@@ -25,3 +25,12 @@ void _fetchFoodItems() async {
     _totalCalories = items.fold(0, (sum, item) => sum + item.calories);
   });
 }
+
+void _addFoodItem(String foodItem, int calories) async {
+  final item = FoodItem(name: foodItem, calories: calories);
+  await HiveHelper.foodItemsBox.add(item);
+  setState(() {
+    _foodItems.add(item);
+    _totalCalories += calories;
+  });
+}
