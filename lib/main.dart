@@ -5,3 +5,4 @@ import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import 'start_page.dart';
 
+enum FoodType { meal, snack, drink }
