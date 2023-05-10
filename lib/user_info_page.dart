@@ -45,3 +45,58 @@ class _UserInfoPageState extends State<UserInfoPage> {
     fontWeight: FontWeight.bold,
     ),
     ),
+    SizedBox(height: 20),
+    TextFormField(
+    controller: ageController,
+    keyboardType: TextInputType.number,
+    decoration: InputDecoration(
+    labelText: 'Age',
+    border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10),
+    ),
+    prefixIcon: Icon(Icons.person),
+    ),
+    validator: (value) {
+    if (value == null || value.isEmpty) {
+    return 'Please enter your age';
+    }
+    return null;
+    },
+    ),
+
+    SizedBox(height: 20),
+    TextFormField(
+    controller: heightController,
+    keyboardType: TextInputType.number,
+    decoration: InputDecoration(
+    labelText: 'Height (cm)',
+    border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10),
+    ),
+    prefixIcon: Icon(Icons.height),
+    ),
+    validator: (value) {
+    if (value == null || value.isEmpty) {
+    return 'Please enter your height';
+    }
+    return null;
+    },
+    ),
+    SizedBox(height: 20),
+    TextFormField(
+    controller: weightController,
+    keyboardType: TextInputType.number,
+    decoration: InputDecoration(
+    labelText: 'Weight (kg)',
+    border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10),
+    ),
+    prefixIcon: Icon(Icons.fitness_center),
+    ),
+    validator: (value) {
+    if (value == null || value.isEmpty) {
+    return 'Please enter your weight';
+    }
+    return null;
+    },
+    ),
