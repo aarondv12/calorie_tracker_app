@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'hive_helper.dart';
 import 'food_item.dart';
 
+
 class HistoryPage extends StatefulWidget {
   @override
   _HistoryPageState createState() => _HistoryPageState();
@@ -10,6 +11,7 @@ class HistoryPage extends StatefulWidget {
 
 class _HistoryPageState extends State<HistoryPage> {
   DateTime _selectedDate = DateTime.now();
+
   List<FoodItem> _foodItems = [];
 
   @override
@@ -17,6 +19,15 @@ class _HistoryPageState extends State<HistoryPage> {
     super.initState();
     _fetchFoodItems();
   }
+
+
+  void _fetchFoodItems() async {
+    final items = await HiveHelper.loadFoodItemsByDate(_selectedDate);
+    setState(() {
+      _foodItems = items;
+    });
+  }
+
   int _calculateTotalCalories() {
     return _foodItems.fold(0, (sum, item) => sum + item.calories);
   }
@@ -130,8 +141,11 @@ class _HistoryPageState extends State<HistoryPage> {
   }
 }
 
+
 class CustomListTile extends StatelessWidget {
+
   final FoodItem foodItem;
+
   CustomListTile({required this.foodItem});
 
   @override
