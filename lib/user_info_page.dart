@@ -100,3 +100,32 @@ class _UserInfoPageState extends State<UserInfoPage> {
     return null;
     },
     ),
+    SizedBox(height: 20),
+    DropdownButtonFormField<String>(
+    value: gender,
+    onChanged: (String? newValue) {
+    setState(() {
+    gender = newValue!;
+    });
+    },
+    decoration: InputDecoration(
+    labelText: 'Gender',
+    border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10),
+    ),
+    prefixIcon: Icon(Icons.person_outline),
+    ),
+    items: <String>['Male', 'Female', 'Other']
+        .map<DropdownMenuItem<String>>((String value) {
+    return DropdownMenuItem<String>(
+    value: value,
+    child: Text(value),
+    );
+    }).toList(),
+    validator: (value) {
+    if (value == null) {
+    return 'Please select your gender';
+    }
+    return null;
+    },
+    ),
