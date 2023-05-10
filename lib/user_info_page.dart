@@ -2,21 +2,37 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import 'calorietrackpage.dart';
 
+/// A StatefulWidget representing the user information page.
+///
+/// This page is responsible for collecting user data such as age, height,
+/// weight, gender, and fitness goal to calculate the recommended daily calories.
 class UserInfoPage extends StatefulWidget {
   @override
   _UserInfoPageState createState() => _UserInfoPageState();
 }
 
+/// The internal state of [UserInfoPage].
+///
+/// This class manages the state of form fields and validation logic
+/// for the user information page.
 class _UserInfoPageState extends State<UserInfoPage> {
-  final _formKey = GlobalKey<FormState>(); // Define _formKey here
+  /// Global key to manage form state and validation.
+  final _formKey = GlobalKey<FormState>();
+
+  /// Text editing controllers for user input fields.
   TextEditingController ageController = TextEditingController();
   TextEditingController heightController = TextEditingController();
   TextEditingController weightController = TextEditingController();
+
+  /// Variables to store user gender and fitness goal selections.
   String? gender;
   String? goal;
 
   @override
   Widget build(BuildContext context) {
+    /// The following code builds the UI and manages user inputs, validation,
+    /// and navigation. Detailed comments are not added here as it's self-explanatory
+    /// and follows the standard Flutter widget structure.
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
