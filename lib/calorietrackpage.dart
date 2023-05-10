@@ -34,3 +34,12 @@ void _addFoodItem(String foodItem, int calories) async {
     _totalCalories += calories;
   });
 }
+
+void _deleteFoodItem(int index) async {
+  final item = _foodItems[index];
+  await HiveHelper.foodItemsBox.delete(item.key);
+  setState(() {
+    _foodItems.removeAt(index);
+    _totalCalories -= item.calories;
+  });
+}
