@@ -7,3 +7,9 @@ class HistoryPage extends StatefulWidget {
   @override
   _HistoryPageState createState() => _HistoryPageState();
 }
+
+class _HistoryPageState extends State<HistoryPage> {
+  DateTime _selectedDate = DateTime.now();
+  List<FoodItem> _foodItems = [];
+
+}
