@@ -12,3 +12,7 @@ void main() async {
   await HiveHelper.init();
   runApp(CalorieTrackerApp());
 }
+
+int calculateDailyCalories(int age, double height, double weight, String gender, String goal) {
+  // function content here
+}
