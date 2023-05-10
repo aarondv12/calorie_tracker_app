@@ -129,3 +129,33 @@ class _UserInfoPageState extends State<UserInfoPage> {
     return null;
     },
     ),
+    SizedBox(height: 20),
+    DropdownButtonFormField
+    <String>(
+    value: goal,
+    onChanged: (String? newValue) {
+    setState(() {
+    goal = newValue!;
+    });
+    },
+    decoration: InputDecoration(
+    labelText: 'Goal',
+    border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(10),
+    ),
+    prefixIcon: Icon(Icons.flag),
+    ),
+    items: <String>['Lose weight', 'Maintain weight', 'Gain weight']
+        .map<DropdownMenuItem<String>>((String value) {
+    return DropdownMenuItem<String>(
+    value: value,
+    child: Text(value),
+    );
+    }).toList(),
+    validator: (value) {
+    if (value == null) {
+    return 'Please select your goal';
+    }
+    return null;
+    },
+    ),
