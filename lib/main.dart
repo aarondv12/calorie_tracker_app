@@ -55,3 +55,10 @@ class CalorieTrackerApp extends StatelessWidget {
     );
   }
 }
+class Food {
+  final String name;
+  final int calories;
+  final String category;
+  Food({required this.name, required this.calories, required this.category});
+}
+
