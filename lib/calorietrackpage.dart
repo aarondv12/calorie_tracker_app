@@ -17,3 +17,11 @@ class _HomePageState extends State<HomePage> {
     _fetchFoodItems();
   }
 }
+
+void _fetchFoodItems() async {
+  final items = HiveHelper.foodItemsBox.values.toList();
+  setState(() {
+    _foodItems = items;
+    _totalCalories = items.fold(0, (sum, item) => sum + item.calories);
+  });
+}
