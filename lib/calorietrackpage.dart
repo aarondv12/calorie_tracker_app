@@ -181,3 +181,129 @@ Widget build(BuildContext context) {
     ),
   );
 }
+void _showAddFoodItemDialog(BuildContext context,
+    Function(String, int) onAddFoodItem) {
+  TextEditingController caloriesController = TextEditingController();
+  String selectedCategory = 'meal';
+  showDialog(
+      context: context,
+      builder: (context) {
+        Food? selectedFood;
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return AlertDialog(
+              title: Text('Add Food Item'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            selectedCategory = 'meal';
+                          });
+                        },
+                        child: Text('Meal'),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              selectedCategory == 'meal'
+                                  ? Colors.blue
+                                  : Colors.grey),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            selectedCategory = 'snack';
+                          });
+                        },
+                        child: Text('Snack'),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              selectedCategory == 'snack'
+                                  ? Colors.blue
+                                  : Colors.grey),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            selectedCategory = 'drink';
+                          });
+                        },
+                        child: Text('Drink'),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              selectedCategory == 'drink'
+                                  ? Colors.blue
+                                  : Colors.grey),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(right: 8.0),
+                          child: DropdownButtonFormField<Food>(
+                            items: FoodDatabase.foods
+                                .where((food) =>
+                            food.category == selectedCategory)
+                                .map((food) {
+                              return DropdownMenuItem<Food>(
+                                child: Text(food.name),
+                                value: food,
+                              );
+                            }).toList(),
+                            hint: Text('Select Food Item'),
+                            onChanged: (Food? newValue) {
+                              setState(() {
+                                selectedFood = newValue;
+                                if (newValue != null) {
+                                  caloriesController.text =
+                                      newValue.calories.toString();
+                                }
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  TextField(
+                    controller: caloriesController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(labelText: 'Calories'),
+                  ),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('Cancel'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    if (selectedFood != null) {
+                      int calories = int.tryParse(caloriesController.text) ??
+                          0;
+                      onAddFoodItem(selectedFood!.name,
+                          calories); // Call the passed callback
+                      Navigator.of(context).pop();
+                    }
+                  },
+                  child: Text('Add'),
+                ),
+              ],
+            );
+          },
+        );
+      });
+}
+}
