@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'hive_helper.dart';
-import 'food_item.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import 'start_page.dart';
 
+
 enum FoodType { meal, snack, drink }
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HiveHelper.init();
   runApp(CalorieTrackerApp());
 }
+
+
 
 int calculateDailyCalories(int age, double height, double weight, String gender, String goal) {
   double bmr;
@@ -42,7 +44,8 @@ int calculateDailyCalories(int age, double height, double weight, String gender,
 
   return dailyCalories;
 }
-}
+
+
 class CalorieTrackerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -55,12 +58,16 @@ class CalorieTrackerApp extends StatelessWidget {
     );
   }
 }
+
+
 class Food {
   final String name;
   final int calories;
   final String category;
   Food({required this.name, required this.calories, required this.category});
 }
+
+
 class FoodDatabase {
   static List<Food> foods = [
     Food(name: 'Oatmeal', calories: 150, category: 'meal'),
@@ -134,6 +141,10 @@ class FoodDatabase {
     Food(name: 'Black bean soup', calories: 150, category: 'meal'),
     Food(name: 'Beef and bean burrito', calories: 400, category: 'meal'),
     Food(name: 'Vegetable soup', calories: 100, category: 'meal'),
+    Food(name: 'Yogurt', calories: 100, category: 'snack'),
+    Food(name: 'Apple', calories: 95, category: 'snack'),
+    Food(name: 'Orange Juice', calories: 110, category: 'drink'),
+    Food(name: 'Milk', calories: 150, category: 'drink'),
     Food(name: 'Apple', calories: 95, category: 'snack'),
     Food(name: 'Banana', calories: 105, category: 'snack'),
     Food(name: 'Orange', calories: 62, category: 'snack'),
@@ -207,4 +218,3 @@ class FoodDatabase {
     Food(name: 'Chocolate milk', calories: 200, category: 'drink')
   ];
 }
-

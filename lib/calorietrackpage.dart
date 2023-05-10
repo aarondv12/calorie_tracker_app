@@ -6,6 +6,12 @@ import 'package:flutter/cupertino.dart';
 import 'main.dart';
 
 
+class HomePage extends StatefulWidget {
+  final int dailyCalories;
+  HomePage({required this.dailyCalories});
+  @override
+  _HomePageState createState() => _HomePageState();
+}
 class _HomePageState extends State<HomePage> {
   List<FoodItem> _foodItems = [];
   int _totalCalories = 0;
@@ -305,5 +311,4 @@ void _showAddFoodItemDialog(BuildContext context,
           },
         );
       });
-}
 }
