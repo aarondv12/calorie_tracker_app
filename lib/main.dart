@@ -184,6 +184,27 @@ class FoodDatabase {
     Food(name: 'Mini quesadillas', calories: 180, category: 'snack'),
     Food(name: 'Guacamole', calories: 25, category: 'snack'),
     Food(name: 'Salsa', calories: 10, category: 'snack'),
+    Food(name: 'Water', calories: 0, category: 'drink'),
+    Food(name: 'Black coffee', calories: 2, category: 'drink'),
+    Food(name: 'Green tea', calories: 0, category: 'drink'),
+    Food(name: 'Herbal tea', calories: 0, category: 'drink'),
+    Food(name: 'Iced tea', calories: 90, category: 'drink'),
+    Food(name: 'Orange juice', calories: 112, category: 'drink'),
+    Food(name: 'Apple juice', calories: 114, category: 'drink'),
+    Food(name: 'Cranberry juice', calories: 137, category: 'drink'),
+    Food(name: 'Grapefruit juice', calories: 96, category: 'drink'),
+    Food(name: 'Tomato juice', calories: 41, category: 'drink'),
+    Food(name: 'Pineapple juice', calories: 132, category: 'drink'),
+    Food(name: 'Ginger ale', calories: 90, category: 'drink'),
+    Food(name: 'Soda (cola)', calories: 140, category: 'drink'),
+    Food(name: 'Soda (lemon-lime)', calories: 140, category: 'drink'),
+    Food(name: 'Soda (orange)', calories: 150, category: 'drink'),
+    Food(name: 'Sports drink', calories: 80, category: 'drink'),
+    Food(name: 'Coconut water', calories: 45, category: 'drink'),
+    Food(name: 'Almond milk', calories: 60, category: 'drink'),
+    Food(name: 'Soy milk', calories: 80, category: 'drink'),
+    Food(name: 'Cow milk', calories: 102, category: 'drink'),
+    Food(name: 'Chocolate milk', calories: 200, category: 'drink')
   ];
 }
 
