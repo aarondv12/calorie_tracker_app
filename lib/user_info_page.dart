@@ -159,3 +159,44 @@ class _UserInfoPageState extends State<UserInfoPage> {
     return null;
     },
     ),
+      SizedBox(height: 40),
+      Center(
+        child: ElevatedButton(
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              int age = int.parse(ageController.text);
+              double height = double.parse(heightController.text);
+              double weight = double.parse(weightController.text);
+              int dailyCalories =
+              calculateDailyCalories(age, height, weight, gender!, goal!);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        HomePage(dailyCalories: dailyCalories)),
+              );
+            }
+          },
+          child: Text(
+            'Save',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.blue,
+            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ),
+    ],
+    ),
+    ),
+        ),
+    );
+  }
+}
