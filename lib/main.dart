@@ -61,4 +61,7 @@ class Food {
   final String category;
   Food({required this.name, required this.calories, required this.category});
 }
+class FoodDatabase {
+  static List<Food> foods = [];
+}
 
