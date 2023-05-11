@@ -3,14 +3,20 @@ import 'package:intl/intl.dart';
 import 'hive_helper.dart';
 import 'food_item.dart';
 
-
+/// [HistoryPage] is a StatefulWidget that displays a history page.
+/// The purpose of the page is to show a list of consumed food items
+/// with their calorie count on a specific date.
+/// The user can select the desired date to see the food items consumed on that date.
 class HistoryPage extends StatefulWidget {
   @override
   _HistoryPageState createState() => _HistoryPageState();
 }
 
 class _HistoryPageState extends State<HistoryPage> {
+  /// [_selectedDate] holds the date that the user selects from the date picker.
   DateTime _selectedDate = DateTime.now();
+
+  /// [_foodItems] holds the list of food items for the selected date.
 
   List<FoodItem> _foodItems = [];
 
@@ -20,14 +26,16 @@ class _HistoryPageState extends State<HistoryPage> {
     _fetchFoodItems();
   }
 
-
+  /// Fetches food items for the selected date from the Hive database.
+  /// Sets the state with the fetched items and updates the UI accordingly.
   void _fetchFoodItems() async {
     final items = await HiveHelper.loadFoodItemsByDate(_selectedDate);
     setState(() {
       _foodItems = items;
     });
   }
-
+  /// Calculates the total calories of the food items in [_foodItems].
+  /// It returns the sum of calories of all the food items.
   int _calculateTotalCalories() {
     return _foodItems.fold(0, (sum, item) => sum + item.calories);
   }
