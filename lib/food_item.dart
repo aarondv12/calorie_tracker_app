@@ -15,8 +15,13 @@ class FoodItem extends HiveObject {
   String name;
 
 
+  /// The number of calories in the food item.
+  ///
+  /// Annotated with `@HiveField(1)` for Hive support.
   @HiveField(1)
   int calories;
 
+  /// Constructs a [FoodItem] instance with the given [name] and [calories].
   FoodItem({required this.name, required this.calories});
+
 }
