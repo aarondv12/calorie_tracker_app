@@ -3,6 +3,9 @@ import 'historypage.dart';
 import 'calorietrackpage.dart';
 import 'user_info_page.dart';
 
+/// [StartPage] is a [StatelessWidget] that serves as the landing page for the application.
+/// It offers three options for the user: Start Tracking Calories, Enter User Information, and History.
+/// Each option navigates to a different page in the application.
 class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
