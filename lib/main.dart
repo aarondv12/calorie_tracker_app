@@ -216,5 +216,12 @@ class FoodDatabase {
     Food(name: 'Soy milk', calories: 80, category: 'drink'),
     Food(name: 'Cow milk', calories: 102, category: 'drink'),
     Food(name: 'Chocolate milk', calories: 200, category: 'drink')
+    Food(name: 'Carrot juice', calories: 94, category: 'drink'),
+    Food(name: 'Beetroot juice', calories: 70, category: 'drink'),
+    Food(name: 'Lemonade', calories: 99, category: 'drink'),
+    Food(name: 'Limeade', calories: 107, category: 'drink'),
+    Food(name: 'Fruit punch', calories: 119, category: 'drink'),
+    Food(name: 'Chai tea', calories: 120, category: 'drink'),
+    Food(name: 'Matcha latte', calories: 120, category: 'drink'),
   ];
 }
