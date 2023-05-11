@@ -5,27 +5,30 @@ import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import 'main.dart';
 
-
+/// A StatefulWidget representing the Home page of the Calorie Tracker app.
+///
+/// Displays a list of food items and their corresponding calories,
+/// allowing users to track their daily calorie intake.
 class HomePage extends StatefulWidget {
-
+  /// The daily target for calorie intake.
   final int dailyCalories;
 
-
+  /// Constructs a [HomePage] with a given [dailyCalories] value.
   HomePage({required this.dailyCalories});
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-
+/// The state for the [HomePage] StatefulWidget.
 class _HomePageState extends State<HomePage> {
-
+  /// A list of [FoodItem] objects representing the food items added by the user.
   List<FoodItem> _foodItems = [];
 
-
+  /// The total calorie count of all the food items in [_foodItems].
   int _totalCalories = 0;
 
-
+  /// A flag to indicate if the selected date is the current date.
   bool _isCurrentDate = true;
 
   @override
@@ -34,7 +37,9 @@ class _HomePageState extends State<HomePage> {
     _fetchFoodItems();
   }
 
-
+  /// Fetches food items from [HiveHelper.foodItemsBox] and updates the state.
+  ///
+  /// Sets [_foodItems] to the list of fetched items and updates the [_totalCalories].
   void _fetchFoodItems() async {
     final items = HiveHelper.foodItemsBox.values.toList();
     setState(() {
@@ -43,7 +48,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-
+  /// Adds a food item with the given [foodItem] name and [calories] to the list.
+  ///
+  /// Updates [_foodItems] by adding the new item and adjusts the [_totalCalories].
   void _addFoodItem(String foodItem, int calories) async {
     final item = FoodItem(name: foodItem, calories: calories);
     await HiveHelper.foodItemsBox.add(item);
@@ -53,7 +60,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-
+  /// Deletes a food item at the specified [index] from the list.
+  ///
+  /// Updates [_foodItems] by removing the item and adjusts the [_totalCalories].
   void _deleteFoodItem(int index) async {
     final item = _foodItems[index];
     await HiveHelper.foodItemsBox.delete(item.key);
@@ -63,7 +72,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-
+  /// Creates and returns an [ElevatedButton] representing the Save button.
+  ///
+  /// The Save button allows the user to save their food items for the selected date.
   ElevatedButton saveButton() {
     return ElevatedButton.icon(
       onPressed: () async {
@@ -94,7 +105,9 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
+  /// Creates and returns an [ElevatedButton] representing the Recall button.
+  ///
+  /// The Recall button allows the user to retrieve their saved food items for a specific date.
   ElevatedButton recallButton() {
     return ElevatedButton.icon(
       onPressed: () async {
@@ -203,7 +216,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
+  /// Displays a dialog allowing users to add a new food item to the list.
+  ///
+  /// The [onAddFoodItem] function is called when a new item is added.
   void _showAddFoodItemDialog(BuildContext context,
       Function(String, int) onAddFoodItem) {
     TextEditingController caloriesController = TextEditingController();
