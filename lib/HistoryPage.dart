@@ -149,10 +149,17 @@ class _HistoryPageState extends State<HistoryPage> {
   }
 }
 
-
+/// [CustomListTile] is a StatelessWidget that represents a custom list tile
+/// displaying a food item and its calorie count.
+///
+/// It provides a visually consistent way to show the food item's name
+/// and calorie count in the list.
 class CustomListTile extends StatelessWidget {
+  /// The [FoodItem] to be displayed in the list tile.
 
   final FoodItem foodItem;
+  /// Constructs a [CustomListTile] instance with the given [foodItem].
+  /// The [foodItem] parameter is required and cannot be null.
 
   CustomListTile({required this.foodItem});
 
