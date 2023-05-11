@@ -18,6 +18,9 @@ class StartPage extends StatelessWidget {
             colors: [Color(0xff1A237E), Color(0xff3949AB)],
           ),
         ),
+        /// The beneath code is used to ensure that the starting screen aligns perfectly with the device
+        /// that it is used on. There is also code to ensure that whichever button is pressed takes the user
+        /// to another screen without delay.
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
