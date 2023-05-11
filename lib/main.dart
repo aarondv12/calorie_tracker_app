@@ -3,18 +3,20 @@ import 'hive_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'start_page.dart';
 
-
+/// Enumeration for food types.
 enum FoodType { meal, snack, drink }
 
 
+/// The main function initializes Hive and runs the CalorieTrackerApp.
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HiveHelper.init();
   runApp(CalorieTrackerApp());
 }
 
-
-
+/// Calculates the daily caloric needs based on age, height, weight, gender, and goal.
+///
+/// Returns the total number of daily calories needed to achieve the given goal.
 int calculateDailyCalories(int age, double height, double weight, String gender, String goal) {
   double bmr;
 
@@ -45,7 +47,7 @@ int calculateDailyCalories(int age, double height, double weight, String gender,
   return dailyCalories;
 }
 
-
+/// The main app widget, which creates the MaterialApp for the Calorie Tracker app.
 class CalorieTrackerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -59,7 +61,7 @@ class CalorieTrackerApp extends StatelessWidget {
   }
 }
 
-
+/// A class representing a food item, including its name, calories, and category.
 class Food {
   final String name;
   final int calories;
@@ -67,7 +69,9 @@ class Food {
   Food({required this.name, required this.calories, required this.category});
 }
 
-
+/// A class representing a food database.
+///
+/// Contains a static list of [Food] objects.
 class FoodDatabase {
   static List<Food> foods = [
     Food(name: 'Oatmeal', calories: 150, category: 'meal'),
