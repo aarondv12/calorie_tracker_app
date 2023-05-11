@@ -215,7 +215,7 @@ class FoodDatabase {
     Food(name: 'Almond milk', calories: 60, category: 'drink'),
     Food(name: 'Soy milk', calories: 80, category: 'drink'),
     Food(name: 'Cow milk', calories: 102, category: 'drink'),
-    Food(name: 'Chocolate milk', calories: 200, category: 'drink')
+    Food(name: 'Chocolate milk', calories: 200, category: 'drink'),
     Food(name: 'Carrot juice', calories: 94, category: 'drink'),
     Food(name: 'Beetroot juice', calories: 70, category: 'drink'),
     Food(name: 'Lemonade', calories: 99, category: 'drink'),
@@ -225,8 +225,8 @@ class FoodDatabase {
     Food(name: 'Matcha latte', calories: 120, category: 'drink'),
     Food(name: 'Grape juice', calories: 152, category: 'drink'),
     Food(name: 'Pear juice', calories: 100, category: 'drink'),
-    Food(name: 'Strawberry smoothie', calories: 150, category: 'drink')
-    Food(name: 'Mango smoothie', calories: 175, category: 'drink')
+    Food(name: 'Strawberry smoothie', calories: 150, category: 'drink'),
+    Food(name: 'Mango smoothie', calories: 175, category: 'drink'),
     Food(name: 'Blueberry smoothie', calories: 165, category: 'drink')
   ];
 }
