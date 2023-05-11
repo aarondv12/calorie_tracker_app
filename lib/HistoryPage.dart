@@ -17,7 +17,6 @@ class _HistoryPageState extends State<HistoryPage> {
   DateTime _selectedDate = DateTime.now();
 
   /// [_foodItems] holds the list of food items for the selected date.
-
   List<FoodItem> _foodItems = [];
 
   @override
@@ -160,7 +159,6 @@ class CustomListTile extends StatelessWidget {
   final FoodItem foodItem;
   /// Constructs a [CustomListTile] instance with the given [foodItem].
   /// The [foodItem] parameter is required and cannot be null.
-
   CustomListTile({required this.foodItem});
 
   @override
